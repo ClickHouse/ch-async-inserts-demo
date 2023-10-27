@@ -1,0 +1,26 @@
+{
+  "name": "async-inserts-demo",
+  "packageManager": "yarn@4.0.0",
+  "dependencies": {
+    "@clickhouse/client": "^0.2.4",
+    "@fastify/type-provider-typebox": "^3.5.0",
+    "@sinclair/typebox": "^0.31.20",
+    "fastify": "^4.24.3",
+    "fastify-zod": "^1.4.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.9",
+    "ts-node": "^10.9.1"
+  },
+  "scripts": {
+    "start:services": "docker-compose up -d",
+    "stop:services": "docker-compose down",
+    "build": "tsc -p tsconfig.json",
+    "start": "node src/index.js",
+    "dev": "yarn start:services && ts-node src/index.ts",
+    "create:sample-table": "ts-node src/examples/createSampleTable.ts",
+    "sample-inserts": "ts-node src/examples/sampleInserts.ts",
+    "run-sample-query": "ts-node src/examples/query.ts"
+  }
+}
